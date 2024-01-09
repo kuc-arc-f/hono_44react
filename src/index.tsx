@@ -6,7 +6,7 @@ const app = new Hono()
 //
 import Test1 from './pages/test/App';
 //
-app.get('/', async (c) => { 
+app.get('/*', async (c) => { 
 //  return c.text("hello");
   return c.html(renderToString(Test1([])));
 });

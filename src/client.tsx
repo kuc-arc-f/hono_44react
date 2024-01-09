@@ -1,12 +1,10 @@
-//import Page1 from './pages/Page1';
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom';
-//import App from './client/App';
+import App from './App';
 
 console.log("#client.ts");
-//Page1.test1();
-
+/*
 function App(){
     return(
         <div>
@@ -17,9 +15,12 @@ function App(){
         </div>
     )
 }
+*/
 //root
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    <div>
+    <React.StrictMode>
+      <BrowserRouter>
         <App />
-    </div>
-)
+      </BrowserRouter>
+    </React.StrictMode>
+  )
