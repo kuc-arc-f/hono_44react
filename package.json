@@ -2,9 +2,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vite build --mode client",
+    "build": "vite build && vite build --mode client && npm run build:client",
+    "build:client": "npx esbuild --bundle ./src/client.tsx --format=esm --minify --outfile=./dist/static/client.js",
     "preview": "wrangler pages dev dist --compatibility-date=2024-01-01",
-    "deploy": "$npm_execpath run build && wrangler pages deploy dist"
+    "deploy": "wrangler pages deploy dist"
   },
   "dependencies": {
     "hono": "^3.11.11",

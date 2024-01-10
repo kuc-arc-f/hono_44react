@@ -29,6 +29,8 @@ export default defineConfig(({ mode }) => {
         devServer({
           entry: 'src/index.tsx',
           cf: {
+            d1Databases: ['DB'],
+            d1Persist: true
           }
         })
       ]
