@@ -27,6 +27,22 @@ const Router = {
             return Response.json(retObj);
         } 
     },
+    getList: async function(c, DB)
+    {
+        try{    
+          //const result = await c.env.DB.prepare(`SELECT * FROM todos ORDER BY id DESC`).all();
+            const result = await DB.prepare(`SELECT * FROM todos ORDER BY id DESC`).all();
+    console.log(result.results);
+            if(result.results.length < 1) {
+              console.error("Error, results.length < 1");
+              return [];
+            }
+            return result.results;
+        } catch (e) {
+            console.error(e);
+            return Response.json(retObj);
+        } 
+    },
     /**
      * 
      * @param
