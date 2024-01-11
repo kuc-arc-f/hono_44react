@@ -35,7 +35,6 @@ app.post('/api/test/create', async (c) => {
   const resulte = await todosRouter.create(body, c.env.DB);
   return c.json(resulte);
 });
-//getList
 app.post('/api/todos/get_list', async (c) => {
   const body = await c.req.json();
   const resulte = await todosRouter.getList(c, c.env.DB);
@@ -45,6 +44,12 @@ app.post('/api/todos/create', async (c) => {
   const body = await c.req.json();
   const resulte = await todosRouter.create(body, c.env.DB);
   return c.json(resulte);
+});
+app.post('/api/todos/get', async (c) => { 
+  const body = await c.req.json();
+  const resulte = await todosRouter.get(body, c, c.env.DB);
+  return c.json({ret: "OK", data: resulte});
+//  return c.json(resulte);
 });
 
 //
