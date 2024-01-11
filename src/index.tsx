@@ -41,6 +41,11 @@ app.post('/api/todos/get_list', async (c) => {
   const resulte = await todosRouter.getList(c, c.env.DB);
   return c.json({ret: "OK", data: resulte});
 });
+app.post('/api/todos/create', async (c) => { 
+  const body = await c.req.json();
+  const resulte = await todosRouter.create(body, c.env.DB);
+  return c.json(resulte);
+});
 
 //
 app.get('/*', async (c) => { 
