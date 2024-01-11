@@ -89,6 +89,35 @@ const Router = {
               console.error(e);
               return {};
           } 
-      },    
+      },  
+    /**
+     *
+     * @param
+     *
+     * @return
+     */ 
+    delete: async function(body, DB): any
+    {
+    console.log(body);
+        const retObj = {ret: "NG", data: [], message: ''}
+        try{
+          if (body) {
+            const sql = `
+            DELETE FROM todos WHERE id = ${body.id}
+            `;
+    console.log(sql);
+            const resulte = await DB.prepare(sql).run();
+    //console.log(resulte);
+            if(resulte.success !== true) {
+              console.error("Error, delete");
+              throw new Error('Error , delete');
+            }      
+          }
+          return {ret: "OK", data: body};
+        } catch (e) {
+          console.error(e);
+          return Response.json(retObj);
+        } 
+      },  
 }
 export default Router;

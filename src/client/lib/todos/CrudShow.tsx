@@ -43,7 +43,7 @@ console.log(postItem);
               id: id
           }
       //console.log(item);
-          const json = await HttpCommon.post(item, '/test/delete');
+          const json = await HttpCommon.post(item, '/api/todos/delete');
       //console.log(json);
           if (json.ret ===  LibConfig.OK_CODE) {
               ret = true;

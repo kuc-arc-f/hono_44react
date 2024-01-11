@@ -15,26 +15,15 @@ function Page() {
   const searchParams = new URLSearchParams(location.search);
   const [updatetime, setUpdatetime] = useState<string>("");
    //
-    useEffect(() => {
-      (async () => {
-        const id = searchParams.get('id') || "";
-        itemId = Number(id);
-console.log(id);
-        getItem(Number(itemId));
-      })()
-    }, []);
-    /**
-     *
-     * @param
-     *
-     * @return
-     */
-    const createTodo = async function() {
-      try{
-      } catch (e) {
-      } 
-  }  
-    /**
+  useEffect(() => {
+    (async () => {
+      const id = searchParams.get('id') || "";
+      itemId = Number(id);
+//console.log(id);
+      getItem(Number(itemId));
+    })()
+  }, []);  
+  /**
    *
    * @param
    *
@@ -50,12 +39,31 @@ console.log(pageItem);
         console.error(e);
     } 
   }
+    /**
+     *
+     * @param
+     *
+     * @return
+     */
+    const deleteItem = async function() {
+      try{
+          const result = await CrudShow.delete(itemId);
+          if(result) {
+              //@ts-ignore
+              window.location.href = '/todos';
+          }
+      } catch (e) {
+          console.error(e);
+      } 
+  }  
   //
   return (
     <div className="container mx-auto my-2 px-8 bg-white">
         <Head />
         <h1 className="text-4xl font-bold">Title: {pageItem.title}</h1>
         <p>ID: {pageItem.id}</p>
+        <hr className="my-1" />
+        <button onClick={()=>deleteItem()} className="btn-red">delete</button>
         <hr className="my-1" />
     </div>
     );
