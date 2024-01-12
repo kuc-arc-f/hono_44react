@@ -72,7 +72,7 @@ console.log(pageItems);
   return (
   <div>
     <Head />
-    <h1>test1.tsx</h1>
+    <h1>test1</h1>
     <hr className="my-1" />
     <div className="mb-2">
       <label className="text-2xl block text-gray-700 font-bold mb-2">Title</label>
