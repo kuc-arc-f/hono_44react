@@ -70,9 +70,9 @@ console.log(pageItems);
   }   
   //
   return (
-  <div>
+  <div className="container mx-auto my-2 px-8 bg-white">
     <Head />
-    <h1>test1</h1>
+    <h1 className="text-4xl text-gray-700 font-bold my-2">Todos-Index</h1>
     <hr className="my-1" />
     <div className="mb-2">
       <label className="text-2xl block text-gray-700 font-bold mb-2">Title</label>
@@ -87,10 +87,11 @@ console.log(pageItems);
         {pageItems.map((item: any ,index: number) => {
         return (
         <div key={index}>
-            <Link to={`/todos/show?id=${item.id}`}><h3 className="text-3xl font-bold">{item.title}</h3>
+            <Link to={`/todos/show?id=${item.id}`}>
+              <h3 className="text-3xl font-bold" >{item.title}</h3>
             </Link>
             <span>ID: {item.id}, {item.createdAt}</span>
-            <hr />
+            <hr className="my-2" />
         </div>
         )
         })}
