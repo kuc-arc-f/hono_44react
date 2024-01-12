@@ -5,6 +5,7 @@ import About from './client/about';
 import Test1 from './client/test1';
 import TodoIndex from './client/TodoIndex';
 import TodoShow from './client/TodoShow';
+import TodoEdit from './client/TodoEdit';
 //
 export default function App(){
     return(
@@ -15,6 +16,7 @@ export default function App(){
         <Route path="/test1" element={<Test1 />} />
         <Route path="/todos" element={<TodoIndex />} />
         <Route path="/todos/show" element={<TodoShow />} />
+        <Route path="/todos/edit" element={<TodoEdit />} />
       </Routes>
     </div>
     )

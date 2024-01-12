@@ -1,3 +1,4 @@
+import Head from '../components/Head'
 //
 function Page() {
   //
@@ -9,12 +10,15 @@ console.log(json);
   }
   //
   return (
-  <div>
-    <h1>test1.tsx</h1>
+  <div className="container mx-auto my-2 px-8 bg-white">
+    <Head />
+    <h1 className="text-4xl text-gray-700 font-bold my-2">test1.tsx
+    </h1>
     <hr />
     <p>Test-page</p>
-    <hr />
-    <button onClick={()=>testProc()}>[ Test ]</button>
+    <hr className="my-2" />
+    <button className="btn-purple" onClick={()=>testProc()}>Test
+    </button>
   </div>
   );
 }

@@ -119,5 +119,31 @@ const Router = {
           return Response.json(retObj);
         } 
       },  
+  /**
+  *
+  * @param
+  *
+  * @return
+  */ 
+  update: async function (body, DB)
+  {
+  //    console.log("#test.update");
+    const retObj = {ret: "NG", data: [], message: ''}
+    try{
+      if (body) {
+        const sql = `
+        UPDATE todos 
+        SET title = '${body.title}', content='${body.content}'
+        WHERE id = ${body.id}
+        `;
+console.log(sql);
+        await DB.prepare(sql).run();
+      }                
+      return {ret: "OK", data: body};
+    } catch (e) {
+      console.error(e);
+      return retObj;
+    } 
+  },
 }
 export default Router;

@@ -90,6 +90,13 @@ console.log(pageItems);
             <Link to={`/todos/show?id=${item.id}`}>
               <h3 className="text-3xl font-bold" >{item.title}</h3>
             </Link>
+            <a href={`/todos/show?id=${item.id}`}>
+               <button className="btn-outline-purple">Show</button>
+            </a>
+            <a href={`/todos/edit?id=${item.id}`}>
+              <button className="btn-outline-purple ms-2">edit</button>
+            </a><br />
+            <br />            
             <span>ID: {item.id}, {item.createdAt}</span>
             <hr className="my-2" />
         </div>

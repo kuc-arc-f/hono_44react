@@ -52,7 +52,41 @@ console.log(postItem);
       } catch (e) {
           console.error(e);
       }
-  },         
+  },
+  /**
+   *
+   * @param
+   *
+   * @return
+   */
+  update : async function(id: number) : Promise<any>
+  {
+      try{
+          let ret = false;
+          let titleValue = "";
+          //@ts-ignore
+          const title = document.querySelector("#title") as HTMLInputElement;
+          //@ts-ignore
+          if(title) {titleValue = title.value};
+          const item = {
+            id:id,
+            title: titleValue,
+            content: "",
+            completed: 0,
+            userId: 0,
+          };
+          const json = await HttpCommon.post(item, '/api/todos/update');
+console.log(json);
+          if (json.ret ===  LibConfig.OK_CODE) {
+              ret = true;
+          }
+          return ret;
+      } catch (e) {
+          console.error("Error, update");
+          console.error(e);
+          throw new Error('Error , update');
+      }
+  },           
 }
 
 export default CrudShow;

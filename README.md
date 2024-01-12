@@ -6,7 +6,7 @@
 
  date    : 2024/01/08
 
- update  : 2024/01/11 
+ update  : 2024/01/13 
 
 ***
 ### Summary
@@ -16,16 +16,22 @@ react + pages, sample
 ***
 ### Setup
 
-* build , preview, deploy
+* build , preview
 
 ```
-npm i
-# build
 yarn build
-npx esbuild --bundle ./src/client.tsx --format=esm --minify --outfile=./dist/static/client.js
-yarn preview
-# deploy
+yarn dev
+```
+
+* deploy
+```
 npx wrangler pages deploy dist
+```
+
+***
+* client.js build
+```
+npx esbuild --bundle ./src/client.tsx --format=esm --minify --outfile=./public/static/client.js
 ```
 ***
 ### blog 

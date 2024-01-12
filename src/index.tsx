@@ -55,6 +55,11 @@ app.post('/api/todos/delete', async (c) => {
   const resulte = await todosRouter.delete(body, c.env.DB);
   return c.json(resulte);
 });
+app.post('/api/todos/update', async (c) => { 
+  const body = await c.req.json();
+  const resulte = await todosRouter.update(body, c.env.DB);
+  return c.json(resulte);
+});
 //
 app.get('/*', async (c) => { 
   return c.html(renderToString(App([])));
